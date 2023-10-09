@@ -1,14 +1,11 @@
 package DBHelpers;
-
 import Objects.Management;
-
 import java.util.List;
 import java.util.Map;
 
 public class ManagementDBHelper {
 
-    public boolean logIn(String email, String password){
-
+    public boolean logIn(String email, String password) {
         if (email == null || password == null) {
             return false;
         }
@@ -20,10 +17,10 @@ public class ManagementDBHelper {
         if (results != null) {
             try {
                 for (Map<String, Object> row : results) {
-                    String userEmail  = (String) row.get("email");
-                    String userPassword   = (String) row.get("password");
+                    String userEmail = (String) row.get("email");
+                    String storedHashedPassword = (String) row.get("password");
 
-                    if (userEmail.equals(email) && userPassword.equals(password)) {
+                    if (userEmail.equals(email) && EncAndDec.verifyPassword(password, storedHashedPassword)) {
                         System.out.println("Customer login successful!");
                         return true;
                     }
@@ -35,8 +32,8 @@ public class ManagementDBHelper {
 
         System.out.println("Error logging in customer.");
         return false;
-
     }
+
 
     public Management getUserByEmail(String email) {
         if (email == null) {

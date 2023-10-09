@@ -6,12 +6,14 @@ public class Management {
     String email;
     String password;
     String name;
+    String salt;
 
-    public Management(Integer id, String email, String password, String name) {
+    public Management(Integer id, String email, String password, String name,String salt) {
         this.id = id;
         this.email = email;
         this.password = password;
         this.name = name;
+        this.salt = salt;
     }
 
     public Management(String name, String userEmail, String password) {
@@ -54,5 +56,14 @@ public class Management {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public void setSalt(String salt) {
+        this.salt = salt;
     }
 }
