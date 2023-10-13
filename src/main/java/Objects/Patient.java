@@ -5,14 +5,14 @@ public class Patient {
     Integer patient_id;
     String name;
     String address;
-    String telephone;
+    Integer telephone;
     String birthdate;
     String gender;
     String crated_by;
     String crated_on;
 
 
-    public Patient(Integer patient_id, String name, String address, String telephone, String birthdate, String gender, String crated_by, String crated_on) {
+    public Patient(Integer patient_id, String name, String address, Integer telephone, String birthdate, String gender, String crated_by, String crated_on) {
         this.patient_id = patient_id;
         this.name = name;
         this.address = address;
@@ -23,7 +23,7 @@ public class Patient {
         this.crated_on = crated_on;
     }
 
-    public Patient(String name, String address, String telephone, String birthdate, String gender, String crated_by, String crated_on) {
+    public Patient(String name, String address, Integer telephone, String birthdate, String gender, String crated_by, String crated_on) {
         this.name = name;
         this.address = address;
         this.telephone = telephone;
@@ -34,6 +34,15 @@ public class Patient {
     }
 
     public Patient() {
+    }
+
+    public Patient(int id, String name, String address, Integer telephone, String age, String gender) {
+        this.patient_id = id;
+        this.name = name;
+        this.address = address;
+        this.telephone = telephone;
+        this.birthdate = age;
+        this.gender = gender;
     }
 
     public Integer getPatient_id() {
@@ -60,11 +69,11 @@ public class Patient {
         this.address = address;
     }
 
-    public String getTelephone() {
+    public Integer getTelephone() {
         return telephone;
     }
 
-    public void setTelephone(String telephone) {
+    public void setTelephone(Integer telephone) {
         this.telephone = telephone;
     }
 

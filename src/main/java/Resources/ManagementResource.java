@@ -22,15 +22,15 @@ import java.util.List;
 @Path("/management")
 public class ManagementResource {
 
-        public static void main(String[] args) {
-            Management management = new Management();
-            management.setId(4);
-            management.setEmail("test@test");
-            management.setName("test256");
-
-       ManagementResource managementResource = new ManagementResource();
-       managementResource.updateUser(4,management);
-    }
+//        public static void main(String[] args) {
+//            Management management = new Management();
+//            management.setId(4);
+//            management.setEmail("test@test");
+//            management.setName("test256");
+//
+//       ManagementResource managementResource = new ManagementResource();
+//       managementResource.updateUser(4,management);
+//    }
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
