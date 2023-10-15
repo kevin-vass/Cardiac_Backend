@@ -39,6 +39,22 @@ public class ClinicData {
     public ClinicData() {
     }
 
+    public ClinicData(int clinicId, int patientId, String age, String sex, String chestPain, Double restingBp, Double cholesterol, String fastingBs, String restingEcg, Double maxHr, String exerciseAngina, Double oldPeak, String stSlope) {
+        this.clinic_id = clinicId;
+        this.patient_id = patientId;
+        this.age = age;
+        this.sex = sex;
+        this.chest_pain = chestPain;
+        this.resting_bp = restingBp;
+        this.cholesterol = cholesterol;
+        this.fasting_bs = fastingBs;
+        this.resting_ecg = restingEcg;
+        this.max_hr = maxHr;
+        this.exercise_angina = exerciseAngina;
+        this.old_peak = oldPeak;
+        this.st_slope = stSlope;
+    }
+
     public Integer getClinic_id() {
         return clinic_id;
     }

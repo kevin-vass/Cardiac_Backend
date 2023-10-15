@@ -7,11 +7,11 @@ import Objects.ClinicData;
 import Objects.Patient;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import jakarta.ws.rs.POST;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+
+import java.util.List;
 
 @Path("/clinic")
 public class ClinicDataResource {
@@ -66,6 +66,48 @@ public class ClinicDataResource {
                     .type(MediaType.TEXT_PLAIN)
                     .entity("Error registering patient.")
                     .build();
+        }
+    }
+
+    @GET
+    @Path("/view")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getClinicData() {
+        List<ClinicData> clinicDataList = ClinicDataDBHelper.getClinicData();
+        if (clinicDataList != null && !clinicDataList.isEmpty()) {
+            Gson gson = new GsonBuilder().create();
+            return gson.toJson(clinicDataList);
+        } else {
+            return "No users found";
+        }
+    }
+
+    @DELETE
+    @Path("/delete/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deleteClinicData(@PathParam("id") int id) {
+        boolean success = ClinicDataDBHelper.deleteClinicData(id);
+        if (success) {
+            return Response.status(Response.Status.OK).entity("Clinic data deleted successfully!").build();
+        } else {
+            return Response.status(500)
+                    .type(MediaType.TEXT_PLAIN)
+                    .entity("Error deleting clinic data.")
+                    .build();
+        }
+    }
+
+    @PUT
+    @Path("/update/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response updateClinicData(@PathParam("id") int id, ClinicData clinicData) {
+        // Update the category with the specified ID
+        boolean success = ClinicDataDBHelper.updateClinicRecord(clinicData);
+
+        if (success) {
+            return Response.status(Response.Status.OK).build();
+        } else {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
         }
     }
 
