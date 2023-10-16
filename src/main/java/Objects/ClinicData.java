@@ -55,6 +55,21 @@ public class ClinicData {
         this.st_slope = stSlope;
     }
 
+    public ClinicData(int i, String s, String male, String asy, double v, double v1, String s1, String lvh, double v2, String n, double v3, String flat) {
+        this.patient_id = i;
+        this.age = s;
+        this.sex = male;
+        this.chest_pain = asy;
+        this.resting_bp = v;
+        this.cholesterol = v1;
+        this.fasting_bs = s1;
+        this.resting_ecg = lvh;
+        this.max_hr = v2;
+        this.exercise_angina = n;
+        this.old_peak = v3;
+        this.st_slope = flat;
+    }
+
     public Integer getClinic_id() {
         return clinic_id;
     }

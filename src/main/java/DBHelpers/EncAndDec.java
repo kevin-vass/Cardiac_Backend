@@ -26,12 +26,12 @@ public class EncAndDec {
 //        return hashedPassword;
 //    }
 
-    public static String generateSalt() {
-        SecureRandom random = new SecureRandom();
-        byte[] saltBytes = new byte[16];
-        random.nextBytes(saltBytes);
-        return Base64.getEncoder().encodeToString(saltBytes);
-    }
+//    public static String generateSalt() {
+//        SecureRandom random = new SecureRandom();
+//        byte[] saltBytes = new byte[16];
+//        random.nextBytes(saltBytes);
+//        return Base64.getEncoder().encodeToString(saltBytes);
+//    }
 
     public static boolean verifyPassword(String inputPassword, String storedHashedPassword) {
         String hashedInputPassword = generateSHA256Hash(inputPassword);

@@ -6,3 +6,4 @@ Tag                 Date                    Description
 004                 2023-10-12              Created all the functions for the user view, edit, insert and delete
 005                 2023-10-13              Added the patient view, edit and clinic record add functions
 006                 2023-10-16              Created all the user functionalities in the system
+007                 2023-10-16              Added the unit tests for the system
